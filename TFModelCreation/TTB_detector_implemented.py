@@ -23,7 +23,8 @@ from tensorflow.keras.callbacks import TensorBoard
 from scipy import mean 
 
 
-BASE_PATH="/storage/ec6821/L1TJets/MsciProjects/2020/ML-TTB-VBF-Detection/TestTrainDataCreation/"
+#BASE_PATH="/storage/ec6821/L1TJets/MsciProjects/2020/ML-TTB-VBF-Detection/TestTrainDataCreation/"
+BASE_PATH="/storage2/ec6821/P2JetsSums/MSciProjects/2020/ML-TTB-VBF-Detection/TestTrainDataCreation/"
 
 pickle_in = open(BASE_PATH+'/test_training_x.pkl',"rb")
 X = pickle.load(pickle_in)
@@ -66,7 +67,7 @@ model.add(Dropout(0.2))
 model.add(tf.keras.layers.Dense(1, activation=tf.nn.sigmoid))
 model.compile(optimizer='Adam',  
                   loss='binary_crossentropy',  
-                  metrics=['accuracy'], verbosity = 1) 
+                  metrics=['accuracy'])#, verbosity = 1) # EJC Commented out verbosity option, doesn't work in 2020 setup
 model.fit(reshape_function_train(25,25), y, epochs=3)
 model.evaluate(reshape_function_validate(25, 25), y_test)
 
