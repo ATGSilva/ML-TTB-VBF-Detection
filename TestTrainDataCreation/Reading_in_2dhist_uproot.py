@@ -8,8 +8,7 @@ import os.path
 '''Takes in a root file and extracts the appropriate data, then uses uproot to view the 2D Histogram image.'''
 
 Sample = 'TTbar'
-BASE_PATH = "/storage/ec6821/L1TJets/MsciProjects/2020/CMSSW_10_6_1_patch2/src/L1Trigger/L1CaloTrigger/test/Histograms_{sample}/".format(sample=Sample) 
-
+BASE_PATH = "/storage2/ec6821/P2JetsSums/MSciProjects/2020/Histograms_{sample}".format(sample=Sample)
 for subdir, dirs, files in os.walk(BASE_PATH):
     i = 0
     for filename in files:
